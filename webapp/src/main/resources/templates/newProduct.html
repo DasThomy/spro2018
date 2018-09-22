@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layout :: page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Neues Produkt</title>
+</head>
+<body>
+<div th:fragment="content">
+
+    <div th:align="center">
+        <h1>Produkt hinzufügen</h1>
+        <form th:action="@{/products/new}" th:object="${Product}" method="POST" enctype="utf8">
+            <hr>
+            <div>
+                <label><b>Produktname: </b></label>
+                <input th:field="*{name}" th:type="text" placeholder="Name des Produktes"/>
+                <p th:each="error: ${#fields.errors('Name')}"
+                   th:text="${error}">Validation error</p>
+            </div>
+            <div>
+                <label><b>Organisation: </b></label>
+                <input th:field="*{organisation}" th:type="text" placeholder="Name der Organisation"/>
+                <p th:each="error: ${#fields.errors('Organisation')}"
+                   th:text="${error}">Validation error</p>
+            </div>
+            <div>
+                <label><b>Version: </b></label>
+                <input th:field="*{version}" th:type="text" placeholder="Aktuelle Version"/>
+                <p th:each="error: ${#fields.errors('Version')}"
+                   th:text="${error}">Validation error</p>
+            </div>
+            <div>
+                <label><b>Veröffentlichkeitsdatum: </b></label>
+                <input th:field="*{releaseDate}" th:type="date" placeholder=""/>
+                <p th:each="error: ${#fields.errors('releaseDate')}"
+                   th:text="${error}">Validation error</p>
+            </div>
+            <div>
+                <label><b>Tags: </b></label>
+                <label>Bitte durch Komma trennen.</label>
+                <input th:field="*{tags}" th:type="text" placeholder="Stichworte"/>
+                <p th:each="error: ${#fields.errors('tags')}"
+                   th:text="${error}">Validation error</p>
+
+            </div>
+            <div>
+                <label><b>Ist Ihr Produkt zertifiziert? </b></label>
+                <input type="checkbox" th:field="*{certified}"/>
+                <p th:each="error: ${#fields.errors('certified')}"
+                   th:text="${error}">Validation error</p>
+            </div>
+
+            <input id="formatsIn" style="display: none;" th:text="${Product.formatInList}" th:field="*{formatInList}">
+            <input id="formatsOut" style="display: none;" th:text="${Product.formatOutList}" th:field="*{formatOutList}">
+            <span id="formats" style="display: none;" th:text="${formats}"></span>
+
+
+            <div class="row">
+                <div class="col">
+                    <label><b>Format In</b></label>
+                    <label th:each="format : ${formats}">
+                        <hr>
+                        <p th:text="${format.name}"></p>
+                        <tr th:each="version : ${format.versions}">
+                            <input type="checkbox" name="format"
+                                   th:onchange="'javascript:changeIn(\''+ ${version.id} + '\')'"
+                                   th:id="${version.id} + 'in'" th:text="${version.name}">
+
+                        </tr>
+                    </label>
+                </div>
+                <div class="col">
+                    <div>
+                        <label><b>Format Out</b></label>
+                        <label th:each="format : ${formats}">
+                            <hr>
+                            <p th:text="${format.name}"></p>
+                            <tr th:each="version : ${format.versions}">
+                                <input type="checkbox" name="format"
+                                       th:onchange="'javascript:changeOut(\''+ ${version.id} + '\')'"
+                                       th:id="${version.id} + 'out'" th:value="${version.name} + 'out'"
+                                       th:text="${version.name}">
+
+
+                            </tr>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Daten speichern</button>
+
+        </form>
+
+    </div>
+    <script>
+        function changeIn(id) {
+            var input = $('#formatsIn');
+
+            var formats = JSON.parse(input.val() || "[]");
+
+            index = formats.indexOf(id)
+            console.log($('#' + id + 'in').prop("checked"))
+            if ($('#' + id + 'in').prop("checked") && index === -1) {
+
+                formats.push(id)
+            }
+            else if (!$('#' + id + 'in').prop("checked") && index !== -1) {
+                formats.splice(index, 1)
+            }
+            console.log(formats)
+            input.val(JSON.stringify(formats))
+        }
+
+        function changeOut(id) {
+            var input = $('#formatsOut');
+
+
+            var formats = JSON.parse(input.val() || "[]");
+
+
+            index = formats.indexOf(id)
+            console.log($('#' + id + 'out').prop("checked"))
+            if ($('#' + id + 'out').prop("checked") && index === -1) {
+
+                formats.push(id)
+            }
+            else if (!$('#' + id + 'out').prop("checked") && index !== -1) {
+                formats.splice(index, 1)
+            }
+            input.val(JSON.stringify(formats))
+            console.log(input.val())
+        }
+
+    </script>
+</body>
+</html>

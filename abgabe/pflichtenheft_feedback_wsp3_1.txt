@@ -1,0 +1,129 @@
+Im Folgenden erhaltet ihr ein Feedback zur Abgabe eures Pflichtenheftes.
+Weitere Einzelheiten sind in der kommentierten pdf-Datei zu finden.
+Bei Unklarheiten oder Missverständnissen sprecht uns gerne an.
+
+LIZENZ
+------
+
+* (hs) ist "Swarm Composer" der Name des Produkts oder des Herstellers?
+
+* (sae) Namen der Entwickler als Copyright Owner eintragen, siehe https://www.apache.org/licenses/LICENSE-2.0.txt unter APPENDIX
+ 
+
+ZIELBESTIMMUNGEN
+----------------
+
+* (hs) Viele unklare Begriffe verwendet, Features ungenau beschrieben, Widersprüche zum Interview (5 Dienste/Kombinationen).
+       Siehe Markierungen im pdf.
+
+* (sae) Was genau versteht ihr unter "guter Performance" bei bis zu 5 Diensten? Betrifft das automatisches
+        Layout der Visualisierung des Graphen, die Berechnung der Kompatibilität, oder welche Kriterien?
+
+* (sae) Die Reihenfolge der Kriterien wirkt unstrukturiert und dadurch unübersichtlich.
+
+PRODUKTEINSATZ
+--------------
+
+* (hs) im Wesentlichen OK, Unklarheiten bei der Datensicherung
+
+PRODUKTUMGEBUNG
+---------------
+
+* (hs) Client nicht klar - Soft- oder Hardware?
+
+* (sae) Das Spring Framework muss nicht bereitgestellt werden, sondern ist Teil der von euch bereitgestellten
+        Webanwendung, wird nur zum Erstellen der Anwendung (war) benötigt
+
+* (sae) Woher stammen die Abschätzungen in 4.2.2? 
+
+PRODUKTFUNKTIONEN
+-----------------
+
+* (hs) Akteure OK
+
+* (sae) Beschreibung z. T. nicht vollständig (Kombination suchen/bearbeiten fehlt bei Website-Benutzer mit
+  Account), vgl. Abb. 5.4
+
+  App
+  ---
+  
+  * (hs) Anwendungsfalldiagramm OK
+  * (hs) nur ein Anwendungsfall beschrieben
+  
+  Server
+  ------
+  
+  * (hs) Anwendungsfalldiagramm:
+         - "Accountmanagement" kein sinnvoller Name für einen Anwendungsfall
+         - Condition "Benutzer ist eingeloggt": Wofür ist die Bedingung genau?
+         - oft Verwendung von extend, wo include besser wäre (da es anscheinend keine Bedingungen gibt), wie z. B.:
+           - All1, All2
+           - Acc3, Acc7
+           - ...
+            
+  * (hs) Die Anwendungsfälle sind sehr unpräzise beschrieben. Wie funktioniert das Hinzufügen eines Dienstes? Welche Details
+         werden bei [Use-Case: Dienstdetails eingeben] denn eingegeben? Wie macht man das - einfach JSON-Format oder gibt es ein
+         User-Interface für die Details? Genauso kann ich mir nicht vorstellen, wie das Hinzufügen eines Dienstes zu einer Kombination
+         oder das Hinzufügen einer Verbindung funktioniert. Ebenso beim Speichern: Gebe ich einen Namen an? Speichere ich im Dateisystem?
+         Oder lokal auf meinem Rechner?
+        
+         Aus euren Beschreibungen geht nicht einmal hervor, ob ihr ein Drag&Drop Interface umsetzen wollt.
+          
+         Es ist auch unklar, was eigentlich "kompatibel" bei euch heißt. Woher "weiß" eure Software, welche Dienste kompatibel sind?
+          
+         In Kapitel 8 (Mockups) wird das ganze etwas klarer.
+         
+  * (hs) Es gibt nur relativ wenige Anwendungsfälle. Der relevanteste ("Kombination bearbeiten") verweist lediglich auf
+         andere, nicht ausgeführte Fälle. Daher wird nicht klar, wie die Funktionen umgesetzt werden sollen.
+         
+  
+TESTFÄLLE
+---------
+
+* (hs) Das "erwartete Verhalten" ist bei euch kein *testbares* Verhalten. Beschreibungen wie "Passwort wird geändert" sind nur eine
+       Umformulierung des Szenarios.
+         
+* (hs) Die eigentliche Funktionalität - Testen von Kompatiblität - scheint gar nicht getestet zu werden. Hier hätte ich erwartet, dass ihr
+       Dienste angebt, die kompatibel bzw. nicht kompatibel sind, sodass von der Software erwartet wird, dass sie in den entsprechenden
+       Fällen "grün" oder "rot" anzeigt.
+
+* (sae) Hier wird impliziert, dass das Layout des Graphen automatisch berechnet wird. Dieses Feature wird aber sonst nirgends beschrieben,
+        z. B. in den Zielbestimmungen. Generell ist die Beschreibung des erwarteten Verhaltens sehr vage und zum Teil redundant.
+
+PRODUKTDATEN
+------------
+
+* (hs) In Ordnung
+
+BENUTZEROBERFLÄCHE
+------------------
+
+* (hs) Umfangreich, die Mockups gefallen mir gut, hier werden einige der offenen Fragen aus den Anwendungsfällen geklärt.
+
+QUALITÄTSANFORDERUNGEN
+----------------------
+
+* (hs) In Ordnung
+
+GLOSSAR
+-------
+
+* (hs) Warum diese Einträge? Bsp: RAM kennen wir, REST kommt im Dokument gar nicht vor...
+
+* (sae) Erläuterung des domänenspezifischen Begriffs SWARM fehlt.
+  
+BEWERTUNG ZUSAMMENFASSUNG UND NOTE
+----------------------------------
+
+* (hs) - Die Anwendungsfälle sind sehr knapp gehalten und sehr unpräzise, sodass man aus ihnen nicht absehen kann,
+         wie die eigentlichen Features umgesetzt werden sollen (siehe insbesondere Acc3). Insbesondere fehlt die 
+         Beschreibung der eigentlichen Hauptfunktion, nämlich der GUI zum Bearbeiten von Dienstekombinationen.
+         
+       - Die Testfälle sind ebenfalls sehr knapp, das "erwartete Verhalten" ist meistens nicht testbar. 
+       
+       - Es gibt keinen Testfall, der die Hauptfunktion der Software (den Kompatibilitätstest) überprüft.
+
+* (sae) - Hilfreich wäre ein kurze Definition aller im Dokument verwendeten Begriffe und deren konsistente
+          Verwendung (z. B. "Kette", "Kombination", "Dienst").
+
+Note: 2.7

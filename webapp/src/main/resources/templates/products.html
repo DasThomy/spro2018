@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      th:include="layout :: page">
+
+<head>
+    <title>Produkte</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<div th:fragment="content">
+    <div class="container">
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            context = /*[[@{/}]]*/ '';
+            /*]]>*/
+        </script>
+
+        <script th:src="@{/js/products.js}"></script>
+
+
+        <div class="input-group mb-1">
+            <input id="search-input"
+                   type="text"
+                   class="form-control"
+                   placeholder="Suchen...">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="search-button"> Suchen</button>
+            </div>
+            <div>
+                <input type="checkbox" id="searchCertified" onchange="search()">Nur zertifizierte Produkte</input>
+            </div>
+        </div>
+        <input type="checkbox" id="searchCertified"> Nur zertifizierte Produkte</input>
+
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <a th:href="@{products/new}">Neues Produkt</a>
+            <a th:href="@{products/upload}">Upload</a>
+        </div>
+
+
+        <table class="table">
+            <thead>
+            <th scope="col"> Name</th>
+            <th scope="col"> Organisation</th>
+            <th scope="col"> Version</th>
+            <!--<th scope="col"> Datum</th>-->
+            <th scope="col"> Zertifiziert</th>
+            <th scope="col"> Format In</th>
+            <th scope="col"> Format Out</th>
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </div>
+            </thead>
+            <tbody>
+            <tr th:if="${products.empty}">
+                <td colspan="5"> Keine Produkte gefunden</td>
+            </tr>
+            <tr th:each="product : ${products}">
+                <td><span th:text="${product.name}"> </span></td>
+                <td><span th:text="${product.organisation}"> </span></td>
+                <td><span th:text="${product.version}"> </span></td>
+                <!--<td><span th:text="${product.releaseDate}"> </span></td>-->
+                <td th:switch="${product.certified}">
+                    <span th:case="true" th:text="Ja"/>
+                    <span th:case="false" th:text="Nein"/>
+                </td>
+                <td>
+                    <div th:each="fIn : ${product.formatInList}">
+                        <span th:text="${fIn.format.name}+ ' Version: ' + ${fIn.name}"> </span>
+                    </div>
+                </td>
+                <td>
+                    <div th:each="fOut : ${product.formatOutList}">
+                        <span th:text="${fOut.format.name} + ' Version: ' + ${fOut.name}"> </span>
+                    </div>
+                </td>
+                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                    <td>
+                        <a th:href="@{/products/{id}(id=${product.id})}"> Logo hinzufügen </a>
+                    </td>
+                    <form th:action="'/products/delete/' + ${product.id}">
+                        <td>
+                            <input type="submit" value="Löschen"/>
+                        </td>
+                    </form>
+                </div>
+            </tr>
+            </tbody>
+        </table>
+        </tbody>
+    </div>
+</body>
+</html>

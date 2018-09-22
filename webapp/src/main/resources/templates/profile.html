@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layout :: page">
+
+<head>
+    <title>Benutzerdaten bearbeiten</title>
+</head>
+
+<body>
+<div th:fragment="content">
+
+    <div th:align="center"></div>
+    <h1 align="center">Benutzerdaten bearbeiten</h1>
+    <form th:action="@{/profile}" th:object="${user}" method="POST" enctype="utf8">
+        <hr>
+        <div th:align="center">
+            <label><b>Anrede:</b></label>
+            <p th:text="'Aktuell: '+ ${userFormOfAddress}">FormOfAdress</p>
+            <input th:field="*{formOfAddress}" th:type="text"/>
+            <p th:each="error: ${#fields.errors('formOfAddress')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div th:align="center">
+            <label><b>Titel:</b></label>
+            <p th:text="'Aktuell: '+${userTitle}">Titel</p>
+            <input th:field="*{title}" th:type="text"/>
+            <p th:each="error: ${#fields.errors('title')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div th:align="center">
+            <label><b>Vorname:</b></label>
+            <p th:text="'Aktuell: '+ ${userFirstname}">Vorname</p>
+            <input th:field="*{firstName}" th:type="text"/>
+            <p th:each="error: ${#fields.errors('firstName')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div th:align="center">
+            <label><b>Nachname:</b></label>
+            <p th:text="'Aktuell: '+ ${userLastname}">Nachname</p>
+            <input th:field="*{lastName}" th:type="text"/>
+            <p th:each="error : ${#fields.errors('lastName')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div th:align="center">
+            <label><b>Organisation:</b></label>
+            <p th:text="'Aktuell: '+ ${userOrganisation}">Organisation</p>
+            <input th:field="*{organisation}" th:type="text"/>
+            <p th:each="error : ${#fields.errors('organisation')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div th:align="center">
+            <label><b>E-Mail Adresse:</b></label>
+            <p th:text="'Aktuell: '+ ${userEmail}">Email</p>
+            <input th:field="*{email}" th:type="text"/>
+            <p th:each="error : ${#fields.errors('email')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div th:align="center">
+            <label><b>Passwort:</b></label>
+            <input th:field="*{password}" type="password"/>
+            <p th:each="error : ${#fields.errors('password')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <button type="submit">Daten speichern</button>
+    </form>
+</div>
+
+</form>
+</center>
+
+
+</div>
+
+</body>
+</html>

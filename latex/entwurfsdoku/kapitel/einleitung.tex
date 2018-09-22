@@ -1,0 +1,70 @@
+\section{Dokumentaufbau}\label{sec:dokumentaufbau}
+In dieser Entwurfsdokumentation beschreiben wir die technische Ausführung, der im Pflichtenheft beschriebenen Funktionen, des SWARM Composers. Hierfür stellen wir erst die Komponenten dar und zeigen dann, wie diese später auf der Hardware verteilt werden.
+Danach beschreiben wir mithilfe mehrerer Klassendiagramme die innere Struktur unserer Software.
+Im fünften Kapitel, in den Sequenzdiagrammen, spezifizieren wir die detaillierte Ausführung komplexer Anwendungsfälle.
+Weiter haben wir unsere API-Schnittstelle designet auf die die Clients zugreifen.
+Zum Abschluss erklären wir im Glossar noch einige Abkürzungen und Begriffe.
+
+\section{Zweckbestimmung}\label{sec:zweckbestimmung}
+Das Produkt soll einem die Möglichkeit bieten sich schnell über die Kompatibilität von verschiedenen Produkten zu informieren.
+Dabei soll das System besonders leicht und intuitiv bedienbar sein.
+Um dies zu verwirklichen, ist die Webseite speziell darauf ausgelegt, passende Kombinationen zu entwickeln und Inkompatibilitäten leicht durch Alternativen zu ersetzten.
+Im Gegensatz dazu ist die App für Präsentationen von Diensten und Kombinationen konzipiert.
+Zudem ist es ein Ziel die Verwaltung der Produkte leicht zu gestalten.
+
+\section{Entwicklungsumgebung}\label{sec:entwicklungsumgebung}
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{l l X}
+		\rowcolor[HTML]{C0C0C0}
+		\textbf{Software} & \textbf{Version} & \textbf{URL} \\
+		Docker & 17.03.2-ce & \url{https://www.docker.com} \\	
+		\rowcolor[HTML]{E7E7E7}
+		Git & - & \url{https://git-scm.com} \\
+		GitLab & - & \url{https://git.informatik.uni-kiel.de} \\	
+		\rowcolor[HTML]{E7E7E7}			
+		Java Development Kit & 8u144 & \url{http://www.oracle.com/technetwork/java/javase/downloads/index.html} \\
+		Jenkins & - & \url{http://134.245.1.240:9002} \\		
+		\rowcolor[HTML]{E7E7E7}
+		Jira & - & \url{http://maui.se.informatik.uni-kiel.de:58080} \\
+		Tomcat & - &  \url{http://134.245.1.240:9001} \\
+	\end{tabularx}
+	\caption{Enwicklungsumgebung und Tools allgemein}
+	\label{table:entwicklungsumgebung-allgemein}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{l l X}
+		\rowcolor[HTML]{C0C0C0}
+		\textbf{Software} & \textbf{Version} & \textbf{URL} \\
+		Bootstrap & 4.1.1 &  \url{https://getbootstrap.com/} \\
+		\rowcolor[HTML]{E7E7E7}
+		Fabric.js & 2.3.6 &  \url{http://fabricjs.com/} \\
+		IntelliJ IDEA Ultimate & 2018.2 & \url{https://www.jetbrains.com/idea/} \\		
+		\rowcolor[HTML]{E7E7E7}
+		jQuery & 3.3.1 &  \url{https://jquery.com} \\
+		Maven & 3.5.4 & \url{https://maven.apache.org} \\
+		\rowcolor[HTML]{E7E7E7}
+		Spring Boot & 2.0.4 & \url{https://spring.io/projects/spring-boot} \\
+		Spring Framework & 5.0.8 & \url{https://spring.io/projects/spring-framework} \\
+		\rowcolor[HTML]{E7E7E7}
+		Thymeleaf & 3.0.9 & \url{https://www.thymeleaf.org} \\
+	\end{tabularx}
+	\caption{Enwicklungsumgebung Webapplikation}
+	\label{table:entwicklungsumgebung-server}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{l l X}
+		\rowcolor[HTML]{C0C0C0}
+		\textbf{Software} & \textbf{Version} & \textbf{URL} \\
+		Android Studio & 3.1.4 & \url{https://developer.android.com/studio/} \\
+		\rowcolor[HTML]{E7E7E7}
+		Gradle & 4.10 & \url{https://gradle.org} \\
+	\end{tabularx}
+	\caption{Enwicklungsumgebung App}
+	\label{table:entwicklungsumgebung-app}
+\end{table}

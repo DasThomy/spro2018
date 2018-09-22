@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" th:include="layout :: page">
+
+<head>
+	<title>Home</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+	<div th:fragment="content">
+		<span id="comb" style="display: none;" th:text="${comb}"></span>
+
+        <!--
+        the popup for adding alternative
+        -->
+		<div id="alternativeModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<div id="alternativeButtons"></div>
+
+				<input type="button" value="Alternative hinzufügen" onclick="selectAlternative()">
+			</div>
+		</div>
+        <!--
+                the popup for saving a combination
+                -->
+		<div id="saveModal" class="modal">
+            <script>
+                $(document).ready(function(){
+                    $('#email-collapse').collapse('hide');
+                    $('input[name="share"]').on('change',function(event){
+                        if (this.value === 'users') {
+                            $('#email-collapse').collapse('show');
+                        }
+                        else {
+                            $('#email-collapse').collapse('hide');
+                        }
+                    });
+                });
+            </script>
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5> Kombination speichern </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name"> Kombinationsname </label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+
+                        <span>Für wen soll die Kombination freigegeben sein?</span>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="share" id="public" value="public" checked>
+                            <label class="form-check-label" for="users"> Öffentlich </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="share" id="private" value="private">
+                            <label class="form-check-label" for="users"> Privat </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="share" id="users" value="users">
+                            <label class="form-check-label" for="users"> Benutzer festlegen, E-Mail-Adressen durch Komma getrennt </label>
+                        </div>
+
+                        <div class="form-group collapse" id="email-collapse">
+                            <input type="email" class="form-control" id="sharedUsers" placeholder="alice@bob.com, max@mustermann.de">
+                        </div>
+                        <br>
+
+                        <button type="button" class="btn btn-primary" onclick="save()"> Speichern </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+		<div class="container">
+            <div class="row">
+<!--
+                search for products
+-->
+                <div class="col">
+                    <form class="form-inline mb-2">
+                        <input id="search-input"
+                               type="text"
+                               class="form-control flex-grow-1"
+                               placeholder="Suchen...">
+                        <button class="btn btn-primary ml-2" type="button" id="search-button"> Suchen </button>
+                    </form>
+                    <input type="checkbox" id="searchCertified" onchange="search()">Nur zertifizierte Produkte</input>
+
+                    <div class="product-scroller">
+                        <div id="productList"></div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <script th:src="@{/js/home.js}"></script>
+                    <script th:src="@{/js/productList.js}"></script>
+<!--
+                    canvas for drag and drop
+-->
+                    <div ondrop="drop(event)" ondragover="onDragOver(event)">
+                        <canvas id="canvas" width="700px" height="500px">
+                            Sorry, your browser doesn't support the &lt;canvas&gt; element.
+                        </canvas>
+                    </div>
+                </div>
+	       </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

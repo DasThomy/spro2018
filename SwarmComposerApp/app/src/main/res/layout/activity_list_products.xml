@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context=".activity.ListProducts">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageViewLogo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_small_logo" />
+
+        <ImageButton
+            android:id="@+id/imageButtonCertified"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@id/imageViewLogo"
+            android:background="#00000000"
+            android:src="@drawable/ic_check_solid" />
+
+        <ImageButton
+            android:id="@+id/imageButtonRefreshPro"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toLeftOf="@id/combButton"
+            android:background="#00000000"
+            android:src="@drawable/ic_sync_alt_solid" />
+
+        <ImageButton
+            android:id="@+id/combButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toLeftOf="@id/settingProductButton"
+            android:background="#00000000"
+            android:src="@drawable/ic_combination_icon" />
+
+        <ImageButton
+            android:id="@+id/settingProductButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:background="#00000000"
+            android:src="@drawable/ic_settings" />
+
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/editTextViewProd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/searchProducts"
+        android:inputType="text"
+        android:imeOptions="actionDone" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerDropDownProd"
+        android:imeOptions="actionDone"></Spinner>
+
+    <ListView
+        android:id="@+id/listViewProd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionDone" />
+
+</LinearLayout>

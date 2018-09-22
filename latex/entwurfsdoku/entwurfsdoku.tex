@@ -1,0 +1,137 @@
+\documentclass{report}
+
+\usepackage[utf8]{inputenc} % Charakter-Kodierung
+\usepackage[german]{babel} % Sprache
+
+\usepackage[table,xcdraw]{xcolor} % Tabellen Farben
+\usepackage{tabularx} % Dynamische Tabellenbreite
+\usepackage{tcolorbox} % Graue Boxen
+\usepackage{hyperref} % url Umgebung
+\usepackage{todonotes} % Notizen
+\usepackage{natbib} % Bibliographie
+\usepackage{fancyhdr} % Header und Footer
+\usepackage{multirow} % Multizeile
+\usepackage{geometry} % Page layout
+\usepackage{color} % Text Farben
+\usepackage[section]{placeins}%Stops pictures from moving around EVERYWHERE
+
+% Page layout
+\geometry{
+	bottom=3.5cm,
+	headheight=180pt
+}
+
+% Nummerierung der ersten Seiten verhindern
+\pagenumbering{gobble}
+
+% Bibstyle
+\bibliographystyle{plain}
+
+% Header / Footer
+\fancypagestyle{plain}{
+	\fancyhf{}% Clear header/footer
+	\fancyhead[R]{\includegraphics[width=4cm]{img/cau-logo-2017}} % Rechter header
+	\fancyhead[L]{\leftmark} % Linker header
+	\fancyfoot[R]{\thepage} % Rechter footer
+	\fancyfoot[L]{\includegraphics[width=1cm]{img/se-logo}} % Linker footer	
+}
+\pagestyle{plain}
+
+\renewcommand{\headrulewidth}{0.5pt} % Unnötige Informationen der Kapitelangabe
+\renewcommand{\footrulewidth}{0.2pt} % entfernen
+\renewcommand{\chaptermark}[1]{\markboth{{#1}}{}}
+
+
+
+
+% Zahlen für Fußnoten
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+
+%%%%% Ausfüllen %%%%%
+
+% Gruppenname
+\newcommand{\gruppenname}{WSP31}
+
+% Projektname
+\newcommand{\projektname}{SWARM Composer}
+
+% Semester
+\newcommand{\semester}{SoSe18}
+
+
+
+% Titelseite
+
+\title{
+	\vspace*{-3cm}
+	Entwurfsdokumentation\\
+	\projektname\\
+	-\\
+	\color{gray}
+	Softwareprojekt \semester\\
+	\gruppenname\\
+	\vspace*{5mm}
+	\includegraphics[width=\textwidth]{img/Logo}
+}
+
+\author{
+	\begin{tabular}{r l@{\hspace{8\tabcolsep}} r} 
+		Lorenz & Boguhn & \multirow{8}{*}{ \includegraphics{img/se-logo} } \\
+		Lennart & Brandt \\
+		Arved & Hansen \\
+		Matthias & Johannsen \\
+		Lars & Jürgensen \\
+		Birger & Thormählen \\
+		Björn & Vonheiden\\
+		Thomas & Zacher \\
+	\end{tabular}
+}
+
+\date{\today}
+
+
+
+
+
+% Dokument
+
+\begin{document}
+	
+	\maketitle
+
+	\tableofcontents 
+	
+	\chapter{Einleitung}\label{chp:einleitung}
+	\pagenumbering{arabic} % Nummerierung starten
+	\thispagestyle{fancy}
+	\input{kapitel/einleitung}
+	
+	\chapter{Komponentendiagramme}\label{chp:komponentendiagramme}
+	\thispagestyle{fancy}
+	\input{kapitel/komponentendiagramme}
+	
+	\chapter{Verteilungsdiagramm}\label{chp:verteilungsdiagramm}
+	\thispagestyle{fancy}
+	\input{kapitel/verteilungsdiagramm}
+		
+	\chapter{Klassendiagramme}\label{chp:klassendiagramme}
+	\thispagestyle{fancy}
+	\input{kapitel/klassendiagramme}
+	
+	\chapter{Sequenzdiagramme}\label{chp:sequenzdiagramme}
+	\thispagestyle{fancy}
+	\input{kapitel/sequenzdiagramme}
+	
+	\chapter{Rest Api}\label{chp:restapi}
+	\thispagestyle{fancy}
+	\input{kapitel/restapi}
+	
+	\chapter{Glossar}\label{chp:glossar}
+	\thispagestyle{fancy}
+	\input{kapitel/glossar}
+	
+	\bibliography{references}
+	\pagenumbering{gobble} % Nummerierung deaktivieren
+	
+\end{document}

@@ -1,0 +1,90 @@
+Im Folgenden erhaltet ihr ein Feedback zur Abgabe eurer Entwurfsdokumentation.
+Weitere Einzelheiten sind in der kommentierten pdf-Datei zu finden.
+Bei Unklarheiten oder Missverständnissen sprecht uns gerne an.
+
+EINLEITUNG
+----------
+
+- (hs) In Ordnung, aber Inkonsistenzen bei URLs (Homepages der Software vs.
+       URL der laufenden Instanz)
+
+* (sae) Z. T. Uneinheitlichen bei den Begriffen (Produkt vs. Dienst)
+
+* (sae) Entwicklungsumgebung in Ordnung, gute Aufteilung der verwendeten Software
+
+KOMPONENTENDIAGRAMME
+--------------------
+
+- (hs) Übersichtlich und im Wesentlichen schlüssig, kleinere Inkonsistenzen (s.u.)
+
+- (hs) z.T. unklar, ob die Schnittstellen wirklich so verwendet werden sollen 
+       ("Auth", "Persistence"), klärt sich eventuell auch erst durch Arbeit mit
+       Spring
+
+- (hs) Verwechslung Rollen / Interfaces? ("Benutzer mit Account")
+
+       -> (sae) Anbieten von Schnittstellen für Funktionen, die sich auf verschiedene
+                Rollen beziehen, finde ich soweit schlüssig, sollte aber kurz erläutert
+                werden (welche Funktionalität für welche Rolle?)
+
+VERTEILUNGSDIAGRAMM
+-------------------
+
+- (hs) Aufteilung in drei Artefakte unklar
+
+- (hs) Client ungenau modelliert
+
+* (sae) Beim Client fehlt zumindest der Webbrowser, sowie ggf. weitere Frontend-Komponenten
+        (z. B. basierend auf Fabric.js?)
+
+KLASSENDIAGRAMME
+----------------
+
+* (sae) Datenmodell (Abb. 4.1) scheint im Wesentlichen angemessen, gut beschrieben
+
+- (hs) Server: In Ordnung, z.T. sind die Diagramme so nicht sinnvoll, das liegt aber wohl daran,
+       dass die genaue Umsetzung mit Spring noch nicht klar ist.
+       
+- (hs) App-Diagramm scheint Work-in-Progress zu sein, es fehlen Attribute, einige void-
+       Rückgabewerte erscheinen falsch, Inkonsistenzen mit Text (Model vs. Datamanagement).
+       ListStuff ist für Kombinationen und Produkte zuständig, die Methode heißt aber
+       searchProducts.
+
+SEQUENZDIAGRAMME
+----------------
+
+- (hs) Insgesamt gut ausgewählt und gut erklärt, aber einige Inkonsistenzen (s.u.)
+
+- (hs) Unklar, warum Aufruf an REST-API geht
+
+- (hs) Läuft "Products added to Page" wirklich nur im Webbrowser? Vermutlich wird hier Angular
+       verwendet, das wird aber im Dokument nicht erwähnt.
+       
+- (hs) In 5.2 verstehe ich den Kompatibilitäts-Test nicht. Warum werden hier zwei Kombinationen/Produkte
+       übergeben? Eine Konfiguration kann doch aus vielen einzelnen Produkten bestehen. Wird dann für
+       jede Zweierkombination ein GET-Request durchgeführt? Eventuell verwirrt hier auch der Zusammenhang
+       mit 5.1, werden in 5.1 keine Kombinationen erstellt?
+       
+- (hs) in 5.7 verstehe ich die Aufrufe an die REST-API nicht. Warum sind dies asynchone Aufrufe?
+
+REST API
+--------
+
+- (hs) Gefällt mir gut!
+
+ALLGEMEINES
+-----------
+
+* (sae) Glossar gut
+
+* (sae) Zum Teil ungünstige Formatierung des Latex-Dokuments (leere Seiten)
+
+* (sae) Zum Teil inkonsistente Begriffswahl (z. B. Produkt vs. Dienst)
+
+BEWERTUNG ZUSAMMENFASSUNG UND NOTE
+----------------------------------
+
+* (hs) Insgesamt gut, mit einigen kleineren Fehlern und Inkonsistenzen.
+
+* (hs/sae) Note: 1.7
+

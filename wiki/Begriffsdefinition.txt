@@ -1,0 +1,10 @@
+Dienst:
+Ein Dienst besteht aus Name, Hersteller, Version, Datum, Tags und einem In und Out Format.
+Dienste können über die Web Anwendung erstellt werden oder über eine REST- Schnittstelle hinzugefügt werden.
+
+
+Kombination:
+Mit einer Kombination ist die Verknüpfung verschiedener Dienste gemeint. Kombinationen können benannt und gespeichert werden und haben einen Sichtbarkeitsgrad. Sie können nur für einen selber, für bestimmte Nutzer (evtl. Gruppen) oder für alle sichtbar sein. In einer Kombinationen müssen nicht alle Verknüpfungen gültig sein, sondern es können auch Kombinationen mit ungültigen Verknüpfungen gespeichert werden. Kombinationen können in der Webanwendung dargestellt werden.
+
+Client:
+Internetbrowser oder Android-Gerät, je nach Benutzung.

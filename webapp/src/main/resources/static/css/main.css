@@ -1,0 +1,144 @@
+/* Additional css rules */
+
+nav.navbar {
+	background-color: #eff0f0;
+}
+
+.col-sm {
+	border: 1px solid black;
+}
+
+canvas {
+	border: 1px dashed gray;
+}
+
+input[type=text], input[type=date], input[type=password] {
+	width: 40%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+.background {
+	width: 100%;
+	background-image: url('../images/background.png');
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=date]:focus
+{
+	background-color: #ddd;
+	outline: none;
+}
+
+hr {
+	border: 1px solid #f1f1f1;
+	margin-bottom: 25px;
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #86b272;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #86b272;
+}
+
+label{
+	display: block;
+}
+h1{
+	align-content: center;
+}
+
+button [type=button], button[type=submit]{
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.9;
+}
+
+.container{
+    background-image: url(images/background.png);
+    background-size: 100% auto;
+}
+
+
+
+#productList {
+	padding-left: 15px;
+}
+
+.product-scroller {
+	height: 400px;
+	overflow-y: scroll;
+	overflow-x: auto;
+}
+
+.service-row {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	width: 100%;
+}
+
+.service-label {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.service-image img {
+	width: auto;
+	height: 50px;
+}
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 10% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}

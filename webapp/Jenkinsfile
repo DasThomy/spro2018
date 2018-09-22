@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    tools {
+        maven 'maven-3.5.0'
+        jdk 'jdk-8u144'
+    }
+    stages {
+        stage ('Check ENV') {
+        	steps {
+                sh "mvn -v"
+                sh "java -version"
+            }
+        }
+        stage ('Test project') {
+        	steps {
+                sh "mvn test"
+            }
+        }
+        stage ('Build project') {
+        	steps {
+                sh "mvn package"
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+Robustheit
+important
+(Abstürze sind nicht schön, aber sind kein großes Problem)
+
+Zuverlassigkeit
+very important
+(Die Verknüpfbarkeit der Dienste soll zuverlässig stimmen)
+
+Wartbarkeit
+important
+(Wartbarkeit ist immer gut, aber es gibt wichtigeres)
+
+Erweiterbarkeit
+very important
+(Da in Aufgabenstellung steht, dass Weiterentwicklung gewährleistet werden soll)
+
+Benutzerfreundlichkeit
+very important
+(Da in Aufgabe steht, dass Oberfläche einfach und intuitiv sein soll)
+
+Effizienz
+important
+(Geschwindigkeit und wenig Speicherplatz ist immer gut, aber nicht unbedingt notwendig)
+
+Anpassbarkeit
+less important
+("Fähigkeit der Software, diese an verschiedene Umgebungen anzupassen." -> nicht wichtig, da es immer in der selben Umgebung laufen soll)
+
+Kompatibilität
+important
+(Es muss in der Lage sein zuverlässig mit dem Server zu kommunizieren, Webanwendung und App dürfen sich nicht negativ beeinflussen)
+
+Sicherheit
+less important
+(es werden keine persönlichen Daten verarbeitet)
+
+
+
+Die Robustheit der Software ist zwar wichtig, allerdings nicht mit sicherheitskritischer Software vergleichbar. Dagegen ist die Zuverlässigkeit noch wichtiger, da der Kunde sich darauf verlässt, dass gültige Kombinationen auch wirklich funktionieren. Das Programm sollte außerdem wartbar sein, da natürlich zukünftig Probleme auftreten können, welche einfach lösbar sein sollen. Besonders wichtig ist aber die Erweiterbarkeit, da es besonders bei der App absehbar ist, dass noch neue Funktionen ergänzt werden sollen. Die Oberfläche soll sehr einfach und intuitiv sein, damit die Architekten keine Probleme bei der Bedienung bekommen. Eine hohe Effizenz der Software ist zwar immer gut, allerdings weniger wichtig als ein gutes Ergebnis. Da sich die Umgebung der Software vermutlich nicht ändern wird, ist die Anpassbarkeit weniger wichtig. Da die App auch bei einem neuen Server in der Lage sein soll zu funktionieren, ist die Kompatibilität wichtig, die Sicherheit der App allerdings weniger, da keine wichtigen persönlichen Daten versendet werden.
+

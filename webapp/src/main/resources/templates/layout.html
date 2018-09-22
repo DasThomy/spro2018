@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="page">
+
+<head>
+	<title>SWARM Composer</title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<script th:src="@{/webjars/jquery/3.3.1-1/jquery.min.js}" type="text/javascript"></script>
+	<script th:src="@{/webjars/fontfaceobserver/fontfaceobserver.js}" type="text/javascript"></script>
+
+	<link th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}" rel="stylesheet"/>
+	<script th:src="@{/webjars/bootstrap/4.1.1/js/bootstrap.min.js}" type="text/javascript"></script>
+
+	<script th:src="@{/webjars/fabric/dist/fabric.min.js}" type="text/javascript"></script>
+
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.3.1/css/all.min.css}"/>
+
+	<link rel="stylesheet" th:href="@{/css/main.css}"/>
+	<link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}"/>
+</head>
+
+<body>
+	<th:block th:replace="fragments/navbar :: navbar"></th:block>
+	<th:block th:include="this :: content"></th:block>
+</body>
+
+</html>

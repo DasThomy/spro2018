@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layout :: page">
+
+<head>
+    <title>Formate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<div th:fragment="content">
+    <div class="container">
+        <a th:href="@{formats/new}">Neues Format</a>
+
+        <table class="table">
+            <thead>
+            <th scope="col"> Name </th>
+            <th scope="col"> Versionen </th>
+            <th scope="col"> Kompatibilitsgrad </th>
+            <th scope="col"> </th>
+            </thead>
+            <tbody>
+            <tr th:each="format : ${formats}">
+                <td> <span th:text="${format.name}"> </span> </td>
+                <td>
+                    <div th:each="version : ${format.versions}">
+                        <span th:text="${version.name}"> </span>
+                    </div>
+                </td>
+                <td> <span th:text="${format.compatibilityDegree}"> </span> </td>
+                <td> <a th:href="@{/formats/{id}(id=${format.id})}">Versionen hinzufügen</a> </td>
+                <td> <a th:href="@{/formats/delete/{id}(id=${format.id})}">Format löschen</a> </td>
+
+            </tr>
+            </tbody>
+        </table>
+        </tbody>
+    </div>
+</body>
+</html>

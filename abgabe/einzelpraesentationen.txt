@@ -1,0 +1,8 @@
+App: Lennart, Birger, Thomas
+
+Webapplikation:
+  Controller: Lars, Björn
+  Frontend: Matthias, Arved
+  Logik: Lorenz
+  Model: Lars
+  Authentication/Security: Björn, Lorenz

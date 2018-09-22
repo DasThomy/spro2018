@@ -1,0 +1,111 @@
+\section{Webseite}
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{l l l l}
+		\rowcolor[HTML]{C0C0C0}
+		\textbf{Methode} & \textbf{URL} & \textbf{Server Klasse} & \textbf{Server Methode}\\
+		\\
+		\multicolumn{4}{c}{\textbf{Seiten}}\\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /register & LoginController & registerView \\
+		GET & /login & LoginController & loginView \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /combinations & CombinationController & combinationListView \\
+		GET & /combinations/XXX & CombinationController & combinationView \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /products & ProductController & productListView \\
+		GET & /products/XXX & ProductController & productView \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /formats/ & FormatController & formatListView \\
+		GET & /formats/XXX & FormatController & formatView \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /users/XXX  & UserController & profileView \\
+		GET & /admin & UserController & selectAdminView \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /combinations/new & CombinationController & createCombinationView \\
+		GET & /formats/new & FormatController & createFormatView \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /products/new & ProductController & createProductView \\
+		\\
+		\multicolumn{4}{c}{\textbf{Suchen}}\\
+		GET & /products?search=XXX & ProductController & searchProduct \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /combinations?search=XXX & CombinationController & searchCombination \\
+		GET & /formats?search=XXX & FormatController & searchFormat \\
+		\\
+		\multicolumn{4}{c}{\textbf{Erstellen}}\\
+		\rowcolor[HTML]{E7E7E7}
+		POST & /users & UserController & register \\
+		POST & /products & ProductController & createProduct \\
+		\rowcolor[HTML]{E7E7E7}
+		POST & /formats & FormatController & createFormat \\
+		POST & /combinations & CombinationController & createCombination \\
+		\rowcolor[HTML]{E7E7E7}
+		POST & /formats/XXX/version & VersionController & addVersion \\
+		\\
+		\multicolumn{4}{c}{\textbf{Update}}\\
+		PUT & /users/XXX & UserController & changeUser \\
+		\rowcolor[HTML]{E7E7E7}
+		PUT & /combinations/XXX & CombinationsController & saveCombination \\
+		PUT & /combinations/XXX/visibility & CombinationsController & changeCombinationsVisibility \\
+		\rowcolor[HTML]{E7E7E7}
+		PUT & /combinations/XXX/users & CombinationsController & shareCombinationWith \\
+		PUT & /products/XXX & ProductController & saveProduct \\
+		\rowcolor[HTML]{E7E7E7}
+		PUT & /formats/XXX & FormatController & saveFormat \\
+		PUT & /users/XXX/version/XXX & VersionController & renameVersion \\
+		\\
+		\multicolumn{4}{c}{\textbf{Löschen}}\\
+		\rowcolor[HTML]{E7E7E7}
+		DELETE & /combinations/XXX & CombinationsController & deleteCombination \\
+		DELETE & /products/XXX & ProductController & deleteProduct \\
+		\rowcolor[HTML]{E7E7E7}
+		DELETE & /formats/XXX & FormatController & deleteFormat \\
+		DELETE & /formats/XXX/version/XXX & VersionController & deleteVersion \\
+		\\
+		\multicolumn{4}{c}{\textbf{Sonstiges}}\\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /compatibility/XXX/XXX & CombinationsController & checkCompatibility \\
+		GET & /login/XXX & LoginController & login \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /logout/XXX & LoginController & logout \\
+
+	\end{tabularx}
+	\caption{Rest - Webseite}
+	\label{table:rest-webseite}
+\end{table}
+
+
+\section{App}
+\begin{table}[h]
+	\centering
+	\begin{tabularx}{\textwidth}{l l l l}
+		\rowcolor[HTML]{C0C0C0}
+		\textbf{Methode} & \textbf{URL} & \textbf{Server Klasse} & \textbf{Server Methode} \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /app/combinations/own & RestControllerApp & getOwnCombinations \\
+		GET & /app/combinations/shared & RestControllerApp & getSharedCombinations \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /app/combinations/public & RestControllerApp & getPublicCombinations \\
+		GET & /app/combinations/XXX & RestControllerApp & getCombination \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /app/products & RestControllerApp & getAllProducts \\
+		GET & /app/products/XXX & RestControllerApp & getProduct \\
+		\rowcolor[HTML]{E7E7E7}
+		GET & /app/products/XXX/Logo & RestControllerApp & getProductLogo \\
+
+	\end{tabularx}
+	\caption{Rest - App}
+	\label{table:rest-app}
+\end{table}
+
+\section{Erklärung}
+Bei der Webseite wird grundsätzlich ein ModelAndView zurückgegeben, die View ist dabei die neue HTML Seite und das Model enthält die benötigten Daten.
+Es gibt aber auch Ausnahmen: Beispielsweise bei der Suche nach Diensten wird nur eine Liste von Diensten (über JSON) zuückgegeben, da sich die View nicht ändert und man sowohl in der Dienst-Liste, als auch bei der Komponentenbearbeitung nach Diensten suchen kann.
+Die Methoden, die ModelAndView zurückgeben, haben '@Controller' als Annotation und die anderen '@RestController'.
+Die jeweiligen Rückgabearten der Methoden kann man im Klassendiagramm finden.
+Bei den Requests von der App ist die URL immer mit '/app/' markiert, die jeweiligen Controller sind mit '@RestController' annotiert.
+Die HTTP Methode ist dort immer GET und es werden JSON Objekte im Response Body zuückgegeben.
+Allgemein sind die GET Methode für Datenabfrage und neue Views, POST für das erstellen von Objekten, PUT für das ändern von Daten und DELETE zum Löschen von Daten.
+Da User nicht gelöscht werden können, haben wir dafür keine Methode.
+Der Unterschied zwischen loginView (bzw. registerView) und login (register) ist, dass mit der View Methode nur die Seite zum anmelden oder registrieren angezeigt wird und mit der anderen die Aktion durchgeführt wird.

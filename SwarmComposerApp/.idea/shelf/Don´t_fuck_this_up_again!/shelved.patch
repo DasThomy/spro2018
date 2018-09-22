@@ -1,0 +1,73 @@
+Index: app/src/main/java/swarm/swarmcomposer/Actvity/DrawCombination.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package swarm.swarmcomposer.Actvity;\n\nimport android.content.Context;\nimport android.content.Intent;\nimport android.graphics.Canvas;\nimport android.graphics.Color;\nimport android.graphics.Paint;\nimport android.os.Bundle;\nimport android.util.Log;\nimport android.view.MotionEvent;\nimport android.view.View;\n\nimport java.util.ArrayList;\n\nimport swarm.swarmcomposer.Helper.ArcArrow;\nimport swarm.swarmcomposer.Helper.Arrow;\nimport swarm.swarmcomposer.Helper.Circle;\nimport swarm.swarmcomposer.Model.ProductInComb;\n\npublic class DrawCombination extends View {\n\n    private final Context context;\n    Paint paint;\n    ArrayList<Circle> circles;\n    ArrayList<Arrow> arrows;\n    ArrayList<ArcArrow> arcarrows;\n    float posX=0;\n    float posY=0;\n    private double distanceOld =0;\n    private double distanceNew =0;\n    private float scale =1;\n    private float minScale=0.3F;\n    private float maxScale=2F;\n    ArrayList<ProductInComb> productInComb;\n\n    private boolean dontmove=false;\n    private boolean moved=false;\n    private float radius;\n\n    public DrawCombination(Context context, ArrayList<Circle> circles, ArrayList<Arrow> arrows, ArrayList<ArcArrow> arcarrows,int radius ,ArrayList<ProductInComb> productInCombs) {\n        super(context);\n        this.radius=radius;\n        this.circles=circles;\n        this.context=context;\n        this.arrows=arrows;\n        this.arcarrows=arcarrows;\n        this.productInComb=productInCombs;\n        paint= new Paint(Color.BLACK);\n    }\n\n    @Override\n    protected void onDraw(Canvas canvas) {\n        super.onDraw(canvas);\n        canvas.translate(posX,posY);\n        canvas.scale(scale,scale);\n        for(Circle iter: circles){\n            canvas.drawCircle(iter.getX(),iter.getY(),radius,iter.getPaint());\n        }\n        for(Arrow iter: arrows){\n            paint.setStrokeWidth(12);\n            canvas.drawLine(iter.getBufferdStartX(), iter.getBufferdStartY(),iter.getBufferdEndX(),iter.getBufferdEndY(),paint);\n            //paint.setStyle(Paint.Style.FILL_AND_STROKE);\n           // canvas.drawPath(iter.getHead(),paint);\n        }\n\n        for(ArcArrow iter: arcarrows){\n            paint.setStyle(Paint.Style.STROKE);\n            canvas.drawPath(iter.getPath(),paint);\n        }\n        invalidate();\n    }\n    float newPosX=0;\n    float newPosY=0;\n    float oldPosX=0;\n    float oldPosY=0;\n    float finger1XOld=0;\n    float finger1YOld=0;\n    float finger2XOld=0;\n    float finger2YOld=0;\n\n    float finger1XNew=0;\n    float finger1YNew=0;\n    float finger2XNew=0;\n    float finger2YNew=0;\n    float oldScale=1;\n    @Override\n    public boolean onTouchEvent(MotionEvent event) {\nif(event.getPointerCount()==1){\n\n        switch(event.getAction()){\n\n            case MotionEvent.ACTION_DOWN:\n                oldPosX = event.getX();\n                oldPosY = event.getY();\n\n                break;\n            case MotionEvent.ACTION_MOVE:\n                if(!dontmove) {\n                    newPosX = event.getX();\n                    newPosY = event.getY();\n                    posX += newPosX - oldPosX;\n                    posY += newPosY - oldPosY;\n                    oldPosX = newPosX;\n                    oldPosY = newPosY;\n                    moved=true;\n                }\n                break;\n\n            case MotionEvent.ACTION_UP:\n\n                if(!moved){\n                    float firstX = (event.getX()-posX)/scale;\n                    float firstY = (event.getY()-posY)/scale;\n                    for(ProductInComb iter: productInComb){\n                       if(Math.sqrt(Math.pow(firstX-iter.getPosX(),2)+Math.pow(firstY-iter.getPosY(),2))<radius*scale){\n                           Intent intent= new Intent(context, ShowProduct.class);\n                           Bundle bundle= new Bundle();\n                           bundle.putInt(\"ProductID\",iter.getiD());\n                           intent.putExtras(bundle);\n                           context.startActivity(intent);\n                       }\n                    }\n                }\n                finger1XOld=0;\n                finger1YOld=0;\n                dontmove=false;\n                moved=false;\n                break;\n                default:\n                    break;\n                    }\n\n}else if(event.getPointerCount()==2){\n    //MOVE SHIT\n    oldPosX=newPosX;\n    oldPosY=newPosY;\n\n    switch(event.getAction()){\n\n        case MotionEvent.ACTION_DOWN:\n            Log.i(\"PRESSEVENTS\",\"doublePressed\");\n            break;\n        case MotionEvent.ACTION_MOVE:\n\n            finger1XNew=event.getX(0);\n            finger1YNew=event.getY(0);\n            finger2XNew=event.getX(1);\n            finger2YNew=event.getY(1);\n            if(finger1XOld==0 || finger1YOld==0){\n\n                dontmove=true;\n                oldScale=scale;\n                finger1XOld=finger1XNew;\n                finger1YOld=finger1YNew;\n                finger2XOld=finger2XNew;\n                finger2YOld=finger2YNew;\n                distanceOld =Math.sqrt(Math.pow(finger1XOld-finger2XOld,2)+Math.pow(finger1YOld-finger2YOld,2));\n            }\n                distanceNew =Math.sqrt(Math.pow(finger1XNew-finger2XNew,2)+Math.pow(finger1YNew-finger2YNew,2));\n\n            scale=(float) (distanceNew / distanceOld)-(1-oldScale);\n            if(scale<minScale)scale=minScale;\n            if(scale>maxScale)scale=maxScale;\n            Log.i(\"scale\",\"Abstand Alt: \"+ distanceOld +\"Abstand Neu: \"+ distanceNew);\n            Log.i(\"scale\",\"Scale: \"+scale);\n\n\n            break;\n\n        case MotionEvent.ACTION_UP:\n            Log.i(\"PRESSEVENTS\",\"done with TWO FINGERS\");\n            break;\n        default:\n            break;\n    }\n\n\n}\n        return true;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/swarm/swarmcomposer/Actvity/DrawCombination.java	(date 1536673970000)
++++ app/src/main/java/swarm/swarmcomposer/Actvity/DrawCombination.java	(date 1536741969355)
+@@ -31,13 +31,15 @@
+     private float scale =1;
+     private float minScale=0.3F;
+     private float maxScale=2F;
++    private int borderX=0;
++    private int borderY=0;
+     ArrayList<ProductInComb> productInComb;
+ 
+     private boolean dontmove=false;
+     private boolean moved=false;
+     private float radius;
+ 
+-    public DrawCombination(Context context, ArrayList<Circle> circles, ArrayList<Arrow> arrows, ArrayList<ArcArrow> arcarrows,int radius ,ArrayList<ProductInComb> productInCombs) {
++    public DrawCombination(Context context, ArrayList<Circle> circles, ArrayList<Arrow> arrows, ArrayList<ArcArrow> arcarrows,int radius ,int borderX, int borderY,ArrayList<ProductInComb> productInCombs) {
+         super(context);
+         this.radius=radius;
+         this.circles=circles;
+@@ -45,6 +47,8 @@
+         this.arrows=arrows;
+         this.arcarrows=arcarrows;
+         this.productInComb=productInCombs;
++        this.borderX=borderX;
++        this.borderY=borderY;
+         paint= new Paint(Color.BLACK);
+     }
+ 
+@@ -59,8 +63,6 @@
+         for(Arrow iter: arrows){
+             paint.setStrokeWidth(12);
+             canvas.drawLine(iter.getBufferdStartX(), iter.getBufferdStartY(),iter.getBufferdEndX(),iter.getBufferdEndY(),paint);
+-            //paint.setStyle(Paint.Style.FILL_AND_STROKE);
+-           // canvas.drawPath(iter.getHead(),paint);
+         }
+ 
+         for(ArcArrow iter: arcarrows){
+@@ -103,6 +105,10 @@
+                     oldPosX = newPosX;
+                     oldPosY = newPosY;
+                     moved=true;
++                    if(posX>borderX)posX=context.;
++                    if(posX<-borderX)posX=-borderX;
++                    if(posY>borderY)posY=borderY;
++                    if(posY<-borderY)posY=-borderY;
+                 }
+                 break;
+ 
+Index: app/src/main/java/swarm/swarmcomposer/Actvity/ShowCombination.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package swarm.swarmcomposer.Actvity;\n\nimport android.graphics.Canvas;\nimport android.graphics.Color;\nimport android.graphics.Paint;\nimport android.support.v7.app.AppCompatActivity;\nimport android.os.Bundle;\nimport android.view.View;\n\nimport java.util.ArrayList;\n\nimport swarm.swarmcomposer.Helper.ArcArrow;\nimport swarm.swarmcomposer.Helper.Arrow;\nimport swarm.swarmcomposer.Helper.Circle;\nimport swarm.swarmcomposer.Model.Combination;\nimport swarm.swarmcomposer.Model.Connection;\nimport swarm.swarmcomposer.Model.Product;\nimport swarm.swarmcomposer.Model.ProductInComb;\nimport swarm.swarmcomposer.R;\n\npublic class ShowCombination extends AppCompatActivity {\n    DrawCombination drawCombination;\n    ArrayList<Circle> circles;\n    ArrayList<Arrow> arrows;\n    ArrayList<ArcArrow>arcarrows;\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        circles= new ArrayList<>();\n        arrows = new ArrayList<>();\n        arcarrows= new ArrayList<>();\n        Bundle bundle = getIntent().getExtras();\n        int KombID=bundle.getInt(\"KombinationID\");\n        Combination combination= AppInstance.getInstance().getCombination(KombID);\n\n        for(ProductInComb iter : combination.getProductInCombList()){\n            drawProduct(iter);\n        }\n        // draw Connections\n        ArrayList<Connection> connectionList=combination.getConnectionList();\n        for(int singleRun=0; singleRun<connectionList.size();singleRun++){\n            boolean drawn=false;\n            for(int checkDouble=0;checkDouble<connectionList.size();checkDouble++){\n                if(connectionList.get(singleRun).getProductStart().getiD()==connectionList.get(checkDouble).getProductTarget().getiD() &&\n                        connectionList.get(singleRun).getProductTarget().getiD()==connectionList.get(checkDouble).getProductStart().getiD()){\n                    // hin und rückline\n                    drawDoubleConnection(connectionList.get(singleRun),connectionList.get(checkDouble));\n                    drawn=true;\n                    break;\n                }\n            }\n            if(!drawn)drawConnection(connectionList.get(singleRun));\n        }\n\n\n\n        drawCombination= new DrawCombination(this,circles, arrows, arcarrows,radius,combination.getProductInCombList());\n        drawCombination.setBackgroundColor(Color.WHITE);\n        setContentView(drawCombination);\n    }\n\n    private int radius=50;\n    private void drawProduct(ProductInComb productInComb) {\n        circles.add(new Circle(productInComb.getPosX(),productInComb.getPosY(),radius,new Paint(Color.BLUE)));\n    }\n\n\n    private void drawConnection(Connection connection) {\n        int product1X=connection.getProductStart().getPosX();\n        int prduct1Y=connection.getProductStart().getPosY();\n        int product2X=connection.getProductTarget().getPosX();\n        int prduct2Y=connection.getProductTarget().getPosY();\n        arrows.add(new Arrow(product1X,prduct1Y,product2X,prduct2Y,radius,20,30));\n\n\n    }\n\n    private void drawDoubleConnection(Connection connection1, Connection connection2) {\n        arcarrows.add(new ArcArrow(radius,connection1.getProductStart().getPosX(),connection1.getProductStart().getPosY(),connection1.getProductTarget().getPosX(),connection1.getProductTarget().getPosY()));\n\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/swarm/swarmcomposer/Actvity/ShowCombination.java	(date 1536673970000)
++++ app/src/main/java/swarm/swarmcomposer/Actvity/ShowCombination.java	(date 1536740935535)
+@@ -54,7 +54,7 @@
+ 
+ 
+ 
+-        drawCombination= new DrawCombination(this,circles, arrows, arcarrows,radius,combination.getProductInCombList());
++        drawCombination= new DrawCombination(this,circles, arrows, arcarrows,radius,combination.getSizeX(),combination.getSizeY(),combination.getProductInCombList());
+         drawCombination.setBackgroundColor(Color.WHITE);
+         setContentView(drawCombination);
+     }

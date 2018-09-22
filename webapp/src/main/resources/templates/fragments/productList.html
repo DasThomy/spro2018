@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div id="productList" th:fragment="productList">
+    <tr th:if="${products.empty}">
+        <span> Keine Produkte gefunden </span>
+    </tr>
+    <div th:each="product : ${products}"
+         class="row service-row border"
+         draggable="true" ondragstart="drag(event)"
+         th:service-id="${product.id}"
+         th:service-name="${product.name}"
+         th:service-image="${'data:image/png;base64,' + product.picture}">
+        <div class="col service-label" draggable="false">
+            <span th:text="${product.name}"> </span>
+        </div>
+        <div class="col-3 service-image">
+            <img class="card-img-top float-right" th:src="${'data:image/png;base64,' + product.picture}"
+                 alt="Card image cap"
+                 draggable="false">
+        </div>
+    </div>
+</body>
+</html>

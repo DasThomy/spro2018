@@ -1,0 +1,56 @@
+Muss:
+App:
+Server Adresse aendern
+
+Webseite:
+Formate hinzufuegen
+Dienste hinzufuegen
+Account erstellen
+Kombinationen erstellen und speichern
+Kombinationen beschraenkt oder Global freigeben, (Gruppen??)
+Suchfunktion fuer Dienste ueber Tags
+Account (E-Mail, Passwort, Rolle)
+Admin ernennen
+
+beides:
+Kompatibilitaet anzeigen
+Kombination per E-Mail versenden
+Login
+gespeicherte Kombinationen ansehen
+
+Soll:
+
+App:
+??Suchfunktion fuer Dienste ueber Tags
+
+Webseite:
+
+beides:
+Suchfunktion fuer Kombinationen
+Account mit Nutzername, Anmeldung ueber beides
+
+Kann:
+
+App:
+Dienste hinzufuegen
+Account erstellen
+Kombinationen erstellen und speichern
+Kombinationen beschruenkt oder Global freigeben
+
+Webseite:
+lokale veraenderbare Kopie von gespeicherten Kombinationen erstellen
+
+beides:
+
+Abgrenzung:
+Nur überprüfen ob die Dienste kompatibel sind, aber keine Schnittstellen bereitstellen
+Keine Überprüfung der eigegebenen Dienste
+Keine Updates/ Wartung
+Andere Apps als Android
+maximal (ich bin ein Platzhalter) Programme als Kette in alternativen
+
+Fragen:
+Dienste bearbeiten/ updaten
+Fuer Gruppen freigeben
+App klaeren, kombinieren, suchen, Dienste oder Kombinationen praesentieren, Server Adresse aendern
+Admin ernennen

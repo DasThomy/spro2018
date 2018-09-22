@@ -1,0 +1,61 @@
+Fragen und Antworten:
+
+- Soll es Gruppen für die Freigabe von Kombinationen geben?
+Ja, aber nur als Soll Priorität.
+
+- Freigabe der Kombinationen für Benutzer über die E-Mail Adresse?
+Ja.
+
+- Soll man Dienste bearbeiten/updaten können?
+Ja, die Formate sind dabei jedoch nicht änderbar.
+
+- Welche Rechte sollten Benutzer ohne Account haben?
+Ein Benutzer ohne Account soll die Dienste und öffentlichen Kombinationen sehen können.
+Das Erstellen von Kombinationen soll nicht möglich sein.
+
+- Wie oft sollen Datensicherungen durchgeführt werden?
+Datensicherungen sollen automatisch, aber nicht zu oft ausgeführt werden.
+
+- Was genau soll die App können?
+Die App soll nach Diensten und Kombinationen suchen und diese auch anzeigen können.
+
+- Wie sollen neue Administratoren ernannt werden?
+Administratoren können über die Nutzerverwaltung von bestehenden Administratoren
+ernannt werden.
+
+- Kann sich jeder auf der Webseite registrieren oder nur per Einladung?
+Jeder hat die Möglichkeit sich auf der Webseite zu registrieren.
+
+- Das teilen von Kombinationen soll über die E-Mail des Kunden laufen oder über
+    eine Standardmail vom Server?
+Die Mail wird über die E-Mail Anwendung des Kunden versendet. Dabei soll eine
+PDF Datei versendet werden. Diese enthält die Kombination bildlich dargestellt
+und eine textuelle Beschreibung über die Dienste.
+
+- Wie groß sollten Kombinationen sein können?
+Bis 5 Kombinationen soll die Anwendung flüssig laufen. Danach darf es auch
+langsamer sein.
+
+- Wie groß ist die maximale Last?
+Die Anwendung sollte anfangs mit einer Last von 50 Benutzern klar kommen.
+
+- Was ist ein Dienst?
+Ein Dienst ist eine Software, die bei Swarm Composer eingetragen werden kann.
+
+
+
+Weiteres Gespräch Anforderungen:
+- Unser Swarm Composer Logo wird super gefunden, auch da die Logofarben benutzt werden.
+- Mit dem Namen Swarm Composer für das Projekt gibt es keine Einwände
+- Serveradresse ändern in der App ist für eine Kundenversion nicht relevant
+- Es gibt keine Schnittstelle (REST-Service) auf Seiten von adesso
+- Es soll keinen Nutzernamen geben, aber Titel und Organisation
+- Sollten Kombinationen nicht kompatibel sein, dann sollen Alternativen angegeben werden.
+Die Alternativen sollen jedoch nicht mehr als 2 Dienste dazwischenschalten.
+- Die Dienste sollen mit Pfeilen verbunden werden. Wenn die Dienste in beide
+Richtungen Daten austauschen, sollen auch 2 Linien mit Pfeilen dort sein.
+- Logofarben sollen auf der Webseite benutzt werden und präsent sein.
+
+
+Weitere Infos:
+- Es kommt eine ZIP Datei mit Logos von den Diensten

@@ -1,0 +1,62 @@
+Fragen und Antworten:
+
+- Was soll die Startseite der App sein?
+Login Seite anzeigen.
+Von dort aus kann man sich Einloggen und kommt zu den eigenen Kombinationen
+oder ohne Einloggen zu einer Übersicht mit den Globalen Kombinationen.
+
+- Was soll die Startseite der Webseite sein?
+Wenn man auf die Webseite geht, bekommt man die Übersicht der globalen Kombinationen.
+Man hat die Möglichkeit sich über einen Button einzuloggen.
+
+
+- Wie sollen die Dienste bei dem Erstellen von Kombinationen angeordnet werden?
+Die Dienste werden per Drag and Drop auf die Kombinationsschaltfläche gezogen.
+Dort können diese frei vom Benutzer bewegt werden.
+
+- Wie sollen die Verbindungen zwischen Diensten bei einer Kombination gezeichnet werden?
+Die Verbindungen von einem Dienst zu einem anderen Dienst in einer Kombination wird durch
+eine gerade Linie zwischen den Diensten dargestellt.
+
+- Was soll für einen Dienst angezeigt werden, wenn er in einer Kombination rein gezogen wurde?
+In dem Kreis sollte, falls vorhanden, das Logo und unter dem Logo der Dienstname angezeigt werden.
+
+- Können Dienste mehrfach in einer Kombination vorkommen?
+Ja, das soll möglich sein.
+
+- Sollen die Austauschformate an den Verbindungen angezeigt werden?
+Es soll möglich sein sich in irgendeiner weise das Format anzeigen zu lassen.
+
+- Was sind die Eingabemöglichkeiten für den Benutzer beim Titel ?
+Dem Benutzer soll es möglich sein einen Klartext dort einzugeben.
+Das wäre z.B. "Dr", "Prof." etc.
+
+
+- Wie genau ist "strict" und "flexible" zu deuten?
+Strict heißt, dass dieses Format in der Version nicht abwärtskompatibel ist.
+Flexible heißt, dass dieses Format in der Version zu allen früheren Versionen kompatibel ist.
+formatIn Version <= formatOut Version
+Bei verschieden Formatversionen des gleichen Typs wird sich der "compatibilityDegree" nicht ändern.
+
+- Wie soll man bei dem Formattyp erkennen, welche Version größer oder kleiner ist? (Versionen haben z.B. Form: 2.0, 4x0, 5)
+Ein Administrator hat die Möglichkeit bei einem Formattypen die Versionen in einer Tabelle manuell zu ordnen.
+
+- Soll es möglich sein selber Logos hochzuladen?
+Ja.
+Wenn man eine JSON Datei mit Diensten hochlädt, soll es möglich sein zusätzlich noch Logos hochzuladen.
+Wenn man einen Dienst manuell erstellt, kann man dort ein Logo für diesen hochladen.
+
+
+Weiteres Gespräch:
+- Zusätzlich soll es eine Anrede (Herr, Frau) für einen Benutzer geben.
+- Wenn die Formatversion für einen Typen leer ist, dann gibt es auch nur diese eine Version
+- Es soll die Möglichkeit geben, dass man seine Kombination für die ganze Organisation frei gibt (über den Organisationsnamen für den Benutzer).
+- Auf der Übersichtsseite für die Kombinationen soll es die Unterscheidung für die
+selbst erstellten Kombinationen, die für einen selbst freigegebenen Kombinationen
+und den globalen Kombinationen (für alle Benutzer sichtbare Kombinationen) geben.
+- Für globale Kombinationen wird kein Besitzer angezeigt.
+- Man kann einen Dienst nur Löschen, wenn er in keiner Kombination verwendet wird. Das gleiche gilt für das Format.
+- Eine Kachelansicht bei der Dienstansicht wäre schön.
+- Wenn bei einer Verbindung von 2 Diensten eine Alternative ausgewählt wird,
+die dazwischen geschaltet werden soll, damit die Dienst kompatibel sind, dann werden
+diese Dienste auf der vorhanden Linie von der Verbindung gezeichnet und entsprechend verbunden.

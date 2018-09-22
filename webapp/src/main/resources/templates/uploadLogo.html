@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layout :: page">
+
+<head>
+    <title>Upload Logo</title>
+</head>
+
+<body>
+
+
+<div th:fragment="content">
+
+    <div>
+        <h1>Logos hier hochladen oder auf products clicken</h1>
+    </div>
+
+    <div>
+        <form th:action="@{/products/new/{productId}/logo (productId=${product})}" method="post"
+              enctype="multipart/form-data">
+            <input type="file" name="logos" multiple>
+            <input type="submit" name="submit">
+        </form>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

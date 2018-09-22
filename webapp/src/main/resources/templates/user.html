@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layout :: page">
+
+<head>
+    <title>Benutzer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<div th:fragment="content">
+    <div class="container">
+
+        <script th:src="@{/js/user.js}"></script>
+
+        <div class="input-group mb-1">
+            <input id="search-input"
+                   type="text"
+                   class="form-control"
+                   placeholder="Suchen...">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="search-button"> Suchen</button>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <th scope="col"> Email</th>
+            <th scope="col"> Name</th>
+            <th scope="col"> Vorname</th>
+            <th scope="col"> Organisation</th>
+            <th scope="col"> Administrator</th>
+            </thead>
+            <tbody>
+            <tr th:if="${users.empty}">
+                <td colspan="5"> Keine Benutzer gefunden !</td>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td><span th:text="${user.email}"> </span></td>
+                <td><span th:text="${user.surname}"> </span></td>
+                <td><span th:text="${user.forename}"> </span></td>
+                <td><span th:text="${user.organisation.name}"> </span></td>
+                <td><input type="checkbox" onclick="admin(this);"
+                           th:user-email="${user.email}"
+                           th:value="${user.role == 'ROLE_ADMIN'}"
+                           th:checked="${user.role == 'ROLE_ADMIN'}"/></td>
+
+            </tr>
+            </tbody>
+        </table>
+        </tbody>
+    </div>
+</body>
+</html>

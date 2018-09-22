@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layout :: page">
+
+<head>
+    <title>Kombinationen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+    <div th:fragment="content">
+        <div class="container">
+
+            <div th:with="tables=${#authorization.expression('isAuthenticated()')} ?
+                ${ {own:'Eigene', shared:'Geteilte', public:'Öffentliche'} } :
+                ${ {public:'Öffentliche'} }">
+
+            <div th:each="entry: ${tables}">
+                <h2 th:text="${entry.value} + ' Kombinationen'"> </h2>
+
+                <table class="table">
+                    <thead>
+                    <th scope="col"> Name </th>
+                    <th scope="col"> Öffentlich? </th>
+                    <th scope="col"> Ersteller </th>
+                    </thead>
+                    <tbody>
+
+                    <tr th:if="${__${entry.key}__.empty}">
+                        <td colspan=4 th:text="'Keine ' + ${entry.value} + 'n Kombinationen gefunden'"> Keine Produkte gefunden </td>
+                    </tr>
+
+                    <tr th:each="comb : ${__${entry.key}__}">
+                        <td> <span th:text="${comb.name}"> </span> </td>
+                        <td th:switch="${comb.publicVisible}">
+                            <span th:case="true" th:text="Ja"/>
+                            <span th:case="false" th:text="Nein"/>
+                        </td>
+                        <td> <span th:text="${comb.creator.getEmail()}"> </span> </td>
+                        <td> <a th:href="@{/combinations/{id}(id=${comb.id})}"> Ansehen </a> </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layout :: page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Neues Produkt</title>
+</head>
+<body>
+<div th:fragment="content">
+
+    <div th:align="center">
+        <h1 th:align="center">Format hinzufügen</h1>
+        <form th:action="@{/formats/new}" th:object="${format}" method="POST" enctype="utf8">
+            <div th:align="center">
+                <label><b>Formatname: </b></label>
+                <input th:field="*{name}" th:type="text"/>
+                <p th:each="error: ${#fields.errors('Name')}"
+                   th:text="${error}">Validation error</p>
+            </div>
+            <div th:align="center">
+                <label><b>Version: </b></label>
+                <input th:field="*{versions}" th:type="text"/>
+                <p th:each="error: ${#fields.errors('Versions')}"
+                   th:text="${error}">Validation error</p>
+            </div>
+            <div th:align="center">
+                <label><b>Kompatibilitätsgrad: </b></label>
+                <label><b>Flexibel? </b></label>
+                <input type="checkbox" th:field="*{flexible}"/>
+                <p th:each="error: ${#fields.errors('flexible')}"
+                   th:text="${error}">Validation error</p>
+            </div>
+
+            <button th:align="bottom" type="submit" > Daten speichern</button>
+
+        </form>
+    </div>
+</body>
+</html>

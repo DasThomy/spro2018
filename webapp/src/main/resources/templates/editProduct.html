@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layout :: page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Produkt bearbeiten</title>
+</head>
+<body>
+<div th:fragment="content">
+
+    <div>
+        <form th:action="@{'/products/'+${product.id}+'/logo'}" method="post" enctype="multipart/form-data">
+            <input type="file" name="logos" multiple>
+            <input type="submit" name="submit">
+        </form>
+
+        <img id="logo" th:src="${'data:image/png;base64,' + logo}"/>
+
+    </div>
+</body>
+</html>

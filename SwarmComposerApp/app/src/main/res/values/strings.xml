@@ -1,0 +1,119 @@
+<resources>
+    <string name="app_name">SwarmComposer</string>
+    <string name="email">E-Mail Adresse</string>
+    <string name="passwort">Passwort</string>
+    <string name="login">Login</string>
+    <string name="showCombination">Kombination anzeigen</string>
+    <string name="showProducts">Dienste anzeigen</string>
+    <string name="myComb">Meine Kombinationen</string>
+    <string name="myProd">Meine Dienste</string>
+    <string name="logo">Logo</string>
+    <string name="version">Version</string>
+    <string name="name">Name</string>
+    <string name="organisation">Organisation</string>
+    <string name="date">Datum</string>
+    <string name="tags">Tags</string>
+    <string name="formatIn">FormatIn</string>
+    <string name="formatOut">FormatOut</string>
+    <string name="showCombinations">Kombinationen anzeigen</string>
+    <string name="searchCombination">Durchsuche hier alle Kombinationen</string>
+    <string name="searchProducts">Durchsuche hier alle Dienste</string>
+    <string-array name="dropDownCombination">
+        <item> Meine Kombinationen</item>
+        <item> Geteilte Kombinationen</item>
+        <item>Öffentlich Kombinationen</item>
+        <item>Suchergebnisse</item>
+    </string-array>
+    <string-array name="dropDownProduct">
+        <item>Alle Dienste</item>
+        <item>Suchergebnisse</item>
+    </string-array>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="logout">Abmelden</string>
+    <string name="SettingsSave">Änderungen Speichern</string>
+    <string name="SettingsServerAdresse">Serveradresse:</string>
+    <string name="SettingsLanguage">Sprache</string>
+    <string name="LogoDesc">Dies ist das Logo des Dienstes</string>
+    <string name="Account">Benutzerkonto:</string>
+    <string name="Permission">Alle Berechtigungen vorhanden</string>
+    <string name="noPermissions">Es fehlen Berechtigungen</string>
+    <string name="LogInWrong">Login Fehlgeschlagen</string>
+    <string name="emailWrong">E-Mail Adresse falsch</string>
+    <string name="networkError">Bei der Verbindung ist ein Fehler aufgetreten</string>
+    <string name="certOnly">Nur Zertifizierte</string>
+    <string name="allProd">Alle Dienste</string>
+    <string name="LoginCor">Anmeldern erfolgreich</string>
+    />
+</resources>

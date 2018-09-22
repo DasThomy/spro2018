@@ -1,0 +1,77 @@
+SEITEN
+
+GET /register				???
+GET /login				???
+GET /combinations			combinationListView
+GET /combinations/XXX			combinationView
+GET /products				productListView
+GET /products/XXX			productView
+GET /formats				formatListView
+GET /formats/XXX			formatView
+GET /users/XXX				profileView
+GET /admin				selectAdminView
+
+??
+GET /combinations/new			combinationView	
+GET /formats/new			createFormatView
+GET /products/new			createProductView
+??
+
+SUCHEN
+
+GET /product?search=XXX			searchProduct
+GET /combination?search=XXX		searchCombination
+GET /format?search=XXX			searchFormat
+	
+ERSTELLEN
+
+POST /users				register
+POST /products				createProduct
+POST /formats				createFormat
+POST /combinations			createCombination
+POST /formats/XXX/version		addVersion
+
+ÄNDERUNGEN
+
+PUT /users/XXX				changeUser
+PUT /combinations/XXX			saveCombination
+PUT /combinations/XXX/visibility	changeCombinationsVisibility
+PUT /combinations/XXX/users		shareCombinationWith
+PUT /products/XXX			saveProduct
+PUT /formats/XXX			saveFormat
+PUT /formats/XXX/version/XXX		renameFormat
+
+LÖSCHEN
+
+DELETE /combinations/XXX		deleteCombination
+DELETE /products/XXX			deleteProduct
+DELETE /formats/XXX			deleteFormat
+DELETE /formats/XXX/version/XXX		deleteVersion
+
+SONSTIGES
+
+GET /compatibility/XXX/XXX		checkCompatibility
+
+APP
+GET /app/combinations/own		getOwnCombinations
+GET /app/combinations/shared		getSharedCombinations
+GET /app/combinations/public		getPublicCombinations
+GET /app/combinations/XXX		getCombination
+GET /app/products			getAllProducts
+GET /app/products/XXX			getProduct
+GET /app/products/XXX/logo		getProductLogo
+
+
+SUCHE IN APP? suche in own, shared, public einzeln? alle 3 kategorien gleichzeitig runterladen?
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+Auch schon ueberlegungen fuer die Umsetzung, die irrelevant fuer das Pflichtenheft sind
+
+Benutzerinformationen:
+String: (Vorname, Nachname,) E-Mail Adresse, Passwort, Rolle, (Nutzername)
+Int: ID
+KombinationListe: Kombination
+
+Dienste:
+String: Name, Organisation, Version
+Long: Datum
+Tagliste: Tags
+Format: FormatIn, FormatOut
+Int: ID
+
+Kombinationen:
+Int: ID
+Liste mit Dienst.ID, Position, Verbindungen
+Liste mit IDs von Nutzern fuer welche die Kombination freigegeben ist
+
+Tag (Enum):
+String: Name
+
+Format (Enum):
+Typ: Typ
+String: Version
+Kompatibilitaetsgrad: Kompatibilitaetsgrad
+
+Typ (Enum):
+String: Name
+
+Kompatibilitaetsgrad (Enum):
+String: Grad
+
+

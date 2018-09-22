@@ -1,0 +1,40 @@
+\section{Testfälle Webseite}
+\begin{figure}[!h]
+	\begin{center}
+		\begin{tabularx}{\textwidth}{ p{.05\textwidth} | p{.1\textwidth} | p{.35\textwidth} | X }
+			\textbf{Nr.} & \textbf{ID} & \textbf{Szenario} & \textbf{Erwartetes Verhalten} \\ \hline
+			1 & Acc1 &User ändert Passwort & Passwort wird geändert.\\ \hline
+			2 & Acc1 &User ändert Organisation &Organisation wird geändert.\\ \hline
+			3 & Acc3-Acc9 &Leere Kombination erstellen &Leere Kombination wird angezeigt.\\ \hline
+			4 & Acc3-Acc4-Acc9 &5 Dienste hinzufügen verbinden  &Kombination wird errechnet und dargestellt. \\ \hline
+			5 & Acc3-Acc4 &Dienste hinzufügen, nicht verbinden &Dienste werden angezeigt.\\ \hline
+			6 & Acc2-Acc3-Acc5 &Kombination erstellen,  speichern &Kombination wird mit Namen gespeichert.\\ \hline
+			7 & All4 &Kombination anzeigen &Gespeicherte Kombination wird angezeigt. \\ \hline
+			8 & All4-Acc6 &Kombination für User X freigeben &User X hat zugriff auf Kombination.\\ \hline
+			9 & All1 &User sucht Dienst &Alle passenden Dienste werden angezeigt.\\ \hline
+			10 & Admin3-Admin4 &Admininistrator erstellt Dienst mit manueller Eingabe &Dienst wird mit eingegebenen Daten erstellt.\\ \hline
+      11 & Admin3-Admin4 &Admininistrator erstellt Dienst mit manueller Eingabe und Dienst existiert schon &Dienst wird nicht erstellt.\\ \hline
+			12 & Admin1-Admin3 &Admininistrator erstellt Dienst durch einlesen von Datei &Dienst mit Daten aus Datei wird erstellt. \\ \hline
+			13 & Admin5 &Admininistrator ernennt User X zu Admininistrator &User X hat Administratorechte.\\ \hline
+			\end{tabularx}
+	\end{center}
+	\caption{wichtige Testfälle Webseite}
+	\label{fig:testfaelle-tabelle}
+\end{figure}
+\newpage
+\section{Testfälle App}
+\begin{figure}[!h]
+	\begin{center}
+		\begin{tabularx}{\textwidth}{ p{.05\textwidth} | p{.1\textwidth} | p{.35\textwidth} | X }
+			\textbf{Nr.} & \textbf{ID} & \textbf{Szenario} & \textbf{Erwartetes Verhalten} \\ \hline
+			1 & A1 & Kombination anklicken und ansehen & Kombination wird angezeigt.\\ \hline
+			2 & A2-A1  & Kombination suchen und ansehen & Gesuchte Kombination wird angezeigt.\\ \hline
+			3 & A1-A4-A6 & Kombination per E-Mail senden & PDF wird generiert und Standard E-Mail-Programm wird geöffnet.\\ \hline
+			4 & A3 & Dienst suchen & Liste an Diensten wird angezeigt.\\ \hline
+			5 & A3-A5 & Dienst suchen und anzeigen & Gesuchter Dienst wird angezeigt.\\ \hline
+			6 &  A1-A5 & Dienst einer Kombination anzeigen & Dienst wird angezeigt.
+			\end{tabularx}
+	\end{center}
+	\caption{wichtige Testfälle App}
+	\label{fig:testfaelle-tabelle}
+\end{figure}

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light" th:fragment="navbar">
+    <a class="navbar-brand" th:href="@{/}">
+        <img th:src="@{/images/swarm.png}" height="45" alt="swarmcomposer"/>
+    </a>
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" th:href="@{/}">Home</a>
+    </div>
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" th:href="@{/combinations}">Kombinationen</a>
+    </div>
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" th:href="@{/products}">Produkte</a>
+    </div>
+    <div class="navbar-nav" sec:authorize="hasRole('ROLE_ADMIN')">
+        <a class="nav-item nav-link" th:href="@{/formats}">Formate</a>
+    </div>
+    <div class="navbar-nav" sec:authorize="isAuthenticated()">
+        <a class="nav-item nav-link" th:href="@{/profile}">Benutzerdaten</a>
+        <!-- We can check with $('#isAuthenticated').val() if the user is logged in -->
+        <input id="isAuthenticated" type="text"style="display: none;" value="true"/>
+    </div>
+    <div class="navbar-nav" sec:authorize="hasRole('ROLE_ADMIN')">
+        <a class="nav-item nav-link" th:href="@{/users}">Benutzer</a>
+    </div>
+    <div class="navbar-nav" sec:authorize="!isAuthenticated()">
+        <a class="nav-item nav-link" th:href="@{/login}">Login</a>
+        <a class="nav-item nav-link" th:href="@{/registration}">Register</a>
+    </div>
+    <!-- Logout must be performed as a POST request, i. e., via a form button.
+       For visual consistency, we use a hidden form submitted by a link here.
+    -->
+    <a class="nav-item nav-link" sec:authorize="isAuthenticated()"
+       href="javascript:document.logoutForm.submit()">Logout</a>
+
+    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+        <input type="submit" value="Logout"/>
+    </form>
+
+    <div class="navbar-nav" sec:authorize="isAuthenticated()">
+        <label class="nav-item" sec:authentication="name">Username</label>
+    </div>
+</nav>
+
+</body>
+</html>
